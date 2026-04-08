@@ -15,18 +15,15 @@ Welcome to my GitHub profile portfolio.
 - **Tools:** Git, GitHub, VS Code
 
 ## 📌 Featured Projects
-- 🔹 Add your top projects here with short descriptions.
-- 🔹 Include links like: `[Project Name](https://github.com/username/repo)`.
-- 🔹 Mention impact, tech stack, and your role.
+- 🔹 [GitHub Profile Repository](https://github.com/amol179/amol179) — My profile README and portfolio overview.
+- 🔹 More projects coming soon — I’m actively building and publishing new work.
 
 ## 📈 GitHub Highlights
 - Consistent learner and contributor
 - Focused on building real-world, user-friendly applications
 
 ## 📫 Contact
-- Email: your-email@example.com
-- LinkedIn: https://linkedin.com/in/your-profile
-- Portfolio Website: https://your-portfolio.com
+- GitHub: https://github.com/amol179
 
 ---
 _Thanks for visiting my profile!_
