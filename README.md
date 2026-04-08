@@ -2,6 +2,8 @@
 
 Full-stack developer focused on building practical, reliable, and user-friendly software.
 
+**amol179/amol179** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
 ## 🚀 About Me
 - I enjoy turning ideas into clean, maintainable products.
 - I work across frontend, backend, and databases to ship complete solutions.
