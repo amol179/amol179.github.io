@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amol's portfolio: Full-stack developer building practical, reliable, user-friendly software.">
-  <title>Amol | Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Amol's portfolio: Final year CSE student and Full-Stack Developer building practical, scalable software.">
+  <title>Amol | Full-Stack Developer</title>
   <style>
+    /* --- CSS Variables & Theming --- */
     :root {
-      --bg: #0b1020;
-      --surface: #121a30;
-      --surface-2: #1a2441;
-      --text: #ecf2ff;
-      --muted: #b5c3e0;
-      --primary: #5da0ff;
-      --primary-strong: #2e7bf8;
-      --accent: #43d9a3;
-      --border: #2b375d;
-      --shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      --bg: #0f172a;
+      --surface: rgba(30, 41, 59, 0.7);
+      --surface-hover: rgba(51, 65, 85, 0.8);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.4);
+      --accent: #818cf8;
+      --border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     }
 
     * {
@@ -30,519 +31,581 @@
     }
 
     body {
-      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       color: var(--text);
-      background: radial-gradient(circle at 20% -20%, #1f376f 0%, transparent 40%),
-        radial-gradient(circle at 100% 0%, #134f42 0%, transparent 30%),
-        var(--bg);
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1200px, 90%);
       margin: 0 auto;
     }
 
+    /* --- Typography & Headings --- */
     .section {
-      padding: 84px 0;
+      padding: 100px 0;
     }
 
     .section-title {
-      font-size: clamp(1.5rem, 2vw + 1rem, 2.3rem);
-      margin-bottom: 10px;
+      font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .section-subtitle {
       color: var(--muted);
-      margin-bottom: 30px;
-      max-width: 640px;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+      max-width: 600px;
     }
 
+    /* --- Navigation (Glassmorphism) --- */
     .nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(8px);
-      background: rgba(11, 16, 32, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
     }
 
     .nav-inner {
-      min-height: 72px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
 
     .brand {
       font-weight: 800;
-      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      color: var(--text);
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      color: var(--muted);
+      gap: 2rem;
       font-weight: 500;
+      color: var(--muted);
     }
 
     .nav-links a:hover {
-      color: var(--text);
+      color: var(--primary);
     }
 
     .menu-btn {
       display: none;
-      border: 1px solid var(--border);
-      background: var(--surface);
+      background: none;
+      border: none;
       color: var(--text);
-      border-radius: 10px;
-      padding: 8px 12px;
+      font-size: 1.5rem;
       cursor: pointer;
     }
 
+    /* --- Hero Section --- */
     .hero {
-      padding: 96px 0 74px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 70px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
+    .hero-content {
+      max-width: 800px;
     }
 
-    .hero-card,
-    .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
+    .greeting {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
-    .hero-card {
-      padding: 36px;
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.82rem;
-      color: #d6e4ff;
-      border: 1px solid rgba(93, 160, 255, 0.6);
-      background: rgba(93, 160, 255, 0.12);
-      border-radius: 999px;
-      padding: 5px 12px;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw + 0.8rem, 3.8rem);
-      line-height: 1.15;
-      margin-bottom: 14px;
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
     }
 
     .hero p {
       color: var(--muted);
-      max-width: 56ch;
-      margin-bottom: 24px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
-      padding: 11px 18px;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
       font-weight: 600;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
       background: var(--primary);
-      color: #061228;
+      color: #0f172a;
+      box-shadow: 0 0 20px var(--primary-glow);
     }
 
     .btn-primary:hover {
-      background: #87b9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--primary-glow);
+      background: #7dd3fc;
     }
 
     .btn-outline {
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.02);
+      background: transparent;
       color: var(--text);
+      border: 1px solid var(--border);
+      margin-left: 1rem;
     }
 
     .btn-outline:hover {
-      border-color: #4d6499;
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.05);
+      transform: translateY(-2px);
     }
 
-    .hero-highlight {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .kpi {
-      padding: 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .kpi h3 {
-      font-size: 1.45rem;
-      margin-bottom: 4px;
-      color: var(--accent);
-    }
-
-    .kpi p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.93rem;
+    /* --- Grid Layouts & Cards --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
-    .about .card {
-      padding: 24px;
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--glass-shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .card h3 {
-      margin-bottom: 8px;
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    /* --- About & Skills --- */
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--muted);
       font-size: 1.05rem;
     }
 
-    .card-padded {
-      padding: 24px;
+    .stats-container {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .card p,
-    .card li {
-      color: var(--muted);
-      font-size: 0.96rem;
+    .stat-item h4 {
+      font-size: 1.8rem;
+      color: var(--text);
     }
 
-    .skills {
+    .stat-item p {
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
     }
 
-    .chip {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.85rem;
-      color: #d8e5ff;
+    .tag {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+    .tag:hover {
+      background: var(--primary);
+      color: #0f172a;
     }
 
-    .project {
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      transition: 0.2s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-4px);
-      border-color: #4760a3;
-    }
-
-    .project h3 {
-      margin-bottom: 10px;
-      font-size: 1.08rem;
-    }
-
-    .project p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .project ul {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .project li::before {
-      content: "✓ ";
-      color: var(--accent);
-      margin-right: 4px;
-    }
-
-    .links {
+    /* --- Projects --- */
+    .project-card {
       display: flex;
-      gap: 14px;
-      margin-top: 14px;
-      font-size: 0.92rem;
-      color: #c8d9ff;
+      flex-direction: column;
+      height: 100%;
     }
 
-    .links a:hover {
-      color: #ffffff;
-    }
-
-    .contact-box {
-      padding: 28px;
-      background: linear-gradient(180deg, #16213f, #121a30);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+    .project-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      margin-bottom: 1rem;
     }
 
-    .contact-box p {
+    .folder-icon {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .project-links a {
       color: var(--muted);
-      max-width: 620px;
+      margin-left: 0.8rem;
+    }
+
+    .project-links a:hover {
+      color: var(--primary);
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .project-desc {
+      color: var(--muted);
+      flex-grow: 1;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    /* --- Contact --- */
+    .contact {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- Animations --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
       text-align: center;
-      padding: 24px 0 40px;
-      font-size: 0.92rem;
+      padding: 2rem 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .menu-btn {
-        display: inline-flex;
-      }
-
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      
+      .menu-btn { display: block; }
+      
       .nav-links {
         position: absolute;
-        top: 72px;
+        top: 70px;
         left: 0;
-        right: 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        padding: 14px 4%;
-        display: none;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        gap: 14px;
+        padding: 2rem;
+        gap: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.3s ease-in-out;
       }
 
-      .nav-links.show {
-        display: flex;
+      .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
+      
+      .btn-outline { margin-left: 0; margin-top: 1rem; }
     }
   </style>
 </head>
 <body>
+
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#home">AMOL.DEV</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <a href="#home" class="brand">AMOL.DEV</a>
+      <button class="menu-btn" id="menuBtn">☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Work</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
   <header class="hero container" id="home">
-    <div class="hero-grid">
-      <div class="hero-card">
-        <span class="badge">Open to Full-Stack Opportunities</span>
-        <h1>Hi, I'm Amol.<br> I build practical software that solves real problems.</h1>
-        <p>
-          Full-stack developer focused on clean architecture, reliable delivery, and user-centered product development.
-          I build web applications end-to-end across frontend, backend, and databases.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" data-github-link="repositories" href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">View GitHub Projects</a>
-          <a class="btn btn-outline" href="#contact">Let's Connect</a>
-        </div>
+    <div class="hero-content reveal">
+      <p class="greeting">Hi, my name is</p>
+      <h1>Amol.</h1>
+      <h1 style="color: var(--muted);">I build for the web.</h1>
+      <p>
+        I'm a Full-Stack Developer specializing in building exceptional digital experiences. Currently deep diving into modern web architecture and data engineering, I focus on creating accessible, scalable, and human-centered products.
+      </p>
+      <div>
+        <a href="https://github.com/amol179" target="_blank" class="btn btn-primary">Check out my GitHub</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
-      <aside class="hero-highlight hero-card">
-        <div class="kpi">
-          <h3>Full-Stack Focus</h3>
-          <p>From React UIs to backend APIs and database design.</p>
-        </div>
-        <div class="kpi">
-          <h3>Product Mindset</h3>
-          <p>Strong emphasis on maintainability, performance, and usability.</p>
-        </div>
-        <div class="kpi">
-          <h3>Continuous Growth</h3>
-          <p>Actively improving in system design and scalable architecture.</p>
-        </div>
-      </aside>
     </div>
   </header>
 
-  <section class="section about" id="about">
-    <div class="container">
-      <h2 class="section-title">Why teams hire me</h2>
-      <p class="section-subtitle">
-        I translate business goals into clean technical solutions and collaborate effectively to ship production-minded features.
-      </p>
-      <div class="grid-3">
-        <article class="card">
-          <h3>End-to-End Ownership</h3>
-          <p>I can contribute across the full development lifecycle: requirements, implementation, testing, and iteration.</p>
-        </article>
-        <article class="card">
-          <h3>Clear, Maintainable Code</h3>
-          <p>I prioritize readable architecture, practical abstractions, and sustainable code quality.</p>
-        </article>
-        <article class="card">
-          <h3>Collaboration & Delivery</h3>
-          <p>I work with product and engineering teams to break down problems and consistently ship value.</p>
-        </article>
+  <section class="section container" id="about">
+    <h2 class="section-title reveal">About Me</h2>
+    <div class="grid-2 reveal">
+      <div class="about-text">
+        <p>
+          Hello! I'm Amol, a developer based in Nagpur, Maharashtra. My journey in tech started with a curiosity about how applications work under the hood, which quickly turned into a passion for full-stack development and system architecture.
+        </p>
+        <p>
+          I'm currently in my final year of Computer Science Engineering (graduating April 2026), maintaining a strong academic record while simultaneously building practical, real-world projects. I enjoy bridging the gap between engineering and design—combining my technical knowledge with a keen eye for solid UI/UX.
+        </p>
+        <div class="stats-container">
+          <div class="stat-item">
+            <h4>7.86</h4>
+            <p>Current CGPA</p>
+          </div>
+          <div class="stat-item">
+            <h4>2026</h4>
+            <p>Class Of</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3 style="margin-bottom: 1rem; color: var(--text);">My Focus Areas</h3>
+        <ul style="color: var(--muted); list-style-position: inside; line-height: 2;">
+          <li>End-to-End MERN Stack Development</li>
+          <li>Interactive UI with React & Next.js</li>
+          <li>Robust Backend APIs (Node.js, Python, Java)</li>
+          <li>Database Architecture & Optimization</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" id="skills">
-    <div class="container">
-      <h2 class="section-title">Core technologies</h2>
-      <p class="section-subtitle">A practical stack for building modern, scalable web products.</p>
-      <div class="card card-padded">
-        <div class="skills">
-          <span class="chip">JavaScript</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">Python</span>
-          <span class="chip">Java</span>
-          <span class="chip">React</span>
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">Express</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">Git & GitHub</span>
+  <section class="section container" id="skills">
+    <h2 class="section-title reveal">Technical Arsenal</h2>
+    <p class="section-subtitle reveal">Technologies I work with regularly to bring ideas to life.</p>
+    
+    <div class="grid-3 reveal">
+      <div class="glass-card">
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span class="tag">React.js</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">JavaScript (ES6+)</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">HTML5 / CSS3</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3>Backend & DB</h3>
+        <div class="skill-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Java</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3>Tools & Architecture</h3>
+        <div class="skill-tags">
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">Data Engineering Concepts</span>
+          <span class="tag">RESTful APIs</span>
+          <span class="tag">Vite</span>
+          <span class="tag">WordPress/Shopify</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="projects">
-    <div class="container">
-      <h2 class="section-title">Featured project strengths</h2>
-      <p class="section-subtitle">
-        Explore my repositories for full code samples. These are the types of outcomes I optimize for.
-      </p>
-      <div class="project-grid">
-        <article class="project">
-          <h3>Frontend Experiences</h3>
-          <p>Responsive interfaces focused on usability, accessibility, and clarity.</p>
-          <ul>
-            <li>Clean component structure</li>
-            <li>Mobile-first layouts</li>
-            <li>Thoughtful UX details</li>
-          </ul>
-        </article>
-        <article class="project">
-          <h3>Backend & APIs</h3>
-          <p>Reliable server-side features with clear contracts and maintainable logic.</p>
-          <ul>
-            <li>RESTful endpoint design</li>
-            <li>Validation and error handling</li>
-            <li>Performance-minded code paths</li>
-          </ul>
-        </article>
-        <article class="project">
-          <h3>Data & Architecture</h3>
-          <p>Practical database design and scalable application structure.</p>
-          <ul>
-            <li>Schema modeling</li>
-            <li>Query optimization mindset</li>
-            <li>Growth-ready foundations</li>
-          </ul>
-        </article>
+  <section class="section container" id="projects">
+    <h2 class="section-title reveal">Featured Work</h2>
+    <p class="section-subtitle reveal">Some of the recent projects I've been building.</p>
+
+    <div class="grid-3 reveal">
+      <div class="glass-card project-card">
+        <div class="project-header">
+          <div class="folder-icon">📁</div>
+          <div class="project-links">
+            <a href="https://github.com/amol179" target="_blank" aria-label="GitHub">↗</a>
+          </div>
+        </div>
+        <h3 class="project-title">3D Design Studio Web App</h3>
+        <p class="project-desc">
+          My final year academic project. A comprehensive web application tailored for 3D design workflows, enabling users to interact with, manage, and showcase complex 3D assets in the browser.
+        </p>
+        <div class="project-tech">
+          <span>React</span>
+          <span>Three.js</span>
+          <span>Node.js</span>
+        </div>
       </div>
-      <div class="links">
-        <a data-github-link="profile" href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">GitHub Profile →</a>
-        <a data-github-link="repositories" href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories →</a>
+
+      <div class="glass-card project-card">
+        <div class="project-header">
+          <div class="folder-icon">📁</div>
+          <div class="project-links">
+            <a href="https://github.com/amol179" target="_blank" aria-label="GitHub">↗</a>
+          </div>
+        </div>
+        <h3 class="project-title">Full-Stack E-Commerce</h3>
+        <p class="project-desc">
+          A robust e-commerce platform featuring user authentication, product management, shopping cart functionality, and seamless payment gateway integration.
+        </p>
+        <div class="project-tech">
+          <span>MERN Stack</span>
+          <span>Redux</span>
+          <span>Stripe</span>
+        </div>
+      </div>
+
+      <div class="glass-card project-card">
+        <div class="project-header">
+          <div class="folder-icon">📁</div>
+          <div class="project-links">
+            <a href="https://github.com/amol179" target="_blank" aria-label="GitHub">↗</a>
+          </div>
+        </div>
+        <h3 class="project-title">Data Pipeline Utility</h3>
+        <p class="project-desc">
+          An exploration into data engineering. Built scripts to extract, transform, and load datasets efficiently, providing clean data for downstream analytics.
+        </p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>SQL</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="container contact-box">
-      <div>
-        <h2 class="section-title">Let’s build something impactful</h2>
-        <p>
-          I’m currently open to full-time roles and meaningful collaborations. If you’re hiring, I’d love to discuss how I can contribute to your team.
-        </p>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" data-github-link="profile" href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">Message me on GitHub</a>
-      </div>
-    </div>
+  <section class="section container contact reveal" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="color: var(--muted); margin-bottom: 2rem;">
+      Whether you have a question, a project in mind, or are looking to hire a driven full-stack engineer, my inbox is always open. Let's build something great together.
+    </p>
+    <a href="mailto:your-email@example.com" class="btn btn-primary">Say Hello</a>
   </section>
 
   <footer>
-    © <span id="year"></span> Amol. Crafted for GitHub Pages.
+    <div class="container">
+      <p>Designed & Built by Amol © <span id="year"></span></p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+        <a href="https://github.com/amol179" target="_blank">github.com/amol179</a>
+      </p>
+    </div>
   </footer>
 
   <script>
-    const githubUsername = "amol179";
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-    const githubProfileUrl = `https://github.com/${githubUsername}`;
-    const githubRepositoriesUrl = `${githubProfileUrl}?tab=repositories`;
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.querySelectorAll("[data-github-link]").forEach((link) => {
-      const linkType = link.getAttribute("data-github-link");
-      link.href = linkType === "repositories" ? githubRepositoriesUrl : githubProfileUrl;
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
 
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-      const isExpanded = navLinks.classList.contains("show");
-      menuBtn.setAttribute("aria-expanded", String(isExpanded));
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("show");
-        menuBtn.setAttribute("aria-expanded", "false");
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
       });
     });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Scroll Reveal Animation via Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Optional: Stop observing once revealed
+          // observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const revealOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+    
+    // Navbar background blur on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(15, 23, 42, 0.85)';
+        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      } else {
+        nav.style.background = 'rgba(15, 23, 42, 0.6)';
+        nav.style.boxShadow = 'none';
+      }
+    });
   </script>
 </body>
 </html>
