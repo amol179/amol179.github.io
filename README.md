@@ -1,29 +1,31 @@
 # Hi, I'm Amol 👋
 
-Welcome to my GitHub profile portfolio.
+Full-stack developer focused on building practical, reliable, and user-friendly software.
 
 ## 🚀 About Me
-- 💼 I build practical software solutions with clean and maintainable code.
-- 🌱 I’m currently improving my skills in full-stack development and system design.
-- 🤝 I’m open to collaboration on meaningful and impactful projects.
+- I enjoy turning ideas into clean, maintainable products.
+- I work across frontend, backend, and databases to ship complete solutions.
+- I’m continuously learning system design and scalable application architecture.
+- I’m open to collaborating on impactful projects.
 
-## 🛠️ Skills
-- **Languages:** JavaScript, TypeScript, Python, Java  
-- **Frontend:** React, HTML, CSS  
-- **Backend:** Node.js, Express  
-- **Database:** MongoDB, MySQL  
+## 🧰 Tech Stack
+- **Languages:** JavaScript, TypeScript, Python, Java
+- **Frontend:** React, HTML, CSS
+- **Backend:** Node.js, Express
+- **Database:** MongoDB, MySQL
 - **Tools:** Git, GitHub, VS Code
 
-## 📌 Featured Projects
-- 🔹 [GitHub Profile Repository](https://github.com/amol179/amol179) — My profile README and portfolio overview.
-- 🔹 [All Repositories](https://github.com/amol179?tab=repositories) — Explore my latest public projects and experiments.
+## 📌 Portfolio & Projects
+- [Profile Repository](https://github.com/amol179/amol179) — Portfolio overview and profile README.
+- [All Repositories](https://github.com/amol179?tab=repositories) — Full list of public projects and experiments.
 
-## 📈 GitHub Highlights
-- Consistent learner and contributor
-- Focused on building real-world, user-friendly applications
+## 📈 Focus Areas
+- Building real-world, production-minded applications
+- Writing clean code with strong fundamentals
+- Improving performance, developer experience, and maintainability
 
-## 📫 Contact
-- [GitHub](https://github.com/amol179)
+## 📫 Connect
+- GitHub: [@amol179](https://github.com/amol179)
 
 ---
-_Thanks for visiting my profile!_
+_Thanks for visiting my profile._
