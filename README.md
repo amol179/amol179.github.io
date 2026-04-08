@@ -16,14 +16,14 @@ Welcome to my GitHub profile portfolio.
 
 ## 📌 Featured Projects
 - 🔹 [GitHub Profile Repository](https://github.com/amol179/amol179) — My profile README and portfolio overview.
-- 🔹 More projects coming soon — I’m actively building and publishing new work.
+- 🔹 [All Repositories](https://github.com/amol179?tab=repositories) — Explore my latest public projects and experiments.
 
 ## 📈 GitHub Highlights
 - Consistent learner and contributor
 - Focused on building real-world, user-friendly applications
 
 ## 📫 Contact
-- GitHub: https://github.com/amol179
+- [GitHub](https://github.com/amol179)
 
 ---
 _Thanks for visiting my profile!_
