@@ -230,6 +230,10 @@
       font-size: 1.05rem;
     }
 
+    .card-padded {
+      padding: 24px;
+    }
+
     .card p,
     .card li {
       color: var(--muted);
@@ -366,7 +370,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#home">AMOL.DEV</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -386,7 +390,7 @@
           I build web applications end-to-end across frontend, backend, and databases.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">View GitHub Projects</a>
+          <a class="btn btn-primary" data-github-link="repositories" href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">View GitHub Projects</a>
           <a class="btn btn-outline" href="#contact">Let's Connect</a>
         </div>
       </div>
@@ -434,7 +438,7 @@
     <div class="container">
       <h2 class="section-title">Core technologies</h2>
       <p class="section-subtitle">A practical stack for building modern, scalable web products.</p>
-      <div class="card" style="padding: 24px;">
+      <div class="card card-padded">
         <div class="skills">
           <span class="chip">JavaScript</span>
           <span class="chip">TypeScript</span>
@@ -489,8 +493,8 @@
         </article>
       </div>
       <div class="links">
-        <a href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">GitHub Profile →</a>
-        <a href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories →</a>
+        <a data-github-link="profile" href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">GitHub Profile →</a>
+        <a data-github-link="repositories" href="https://github.com/amol179?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories →</a>
       </div>
     </div>
   </section>
@@ -504,7 +508,7 @@
         </p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">Message me on GitHub</a>
+        <a class="btn btn-primary" data-github-link="profile" href="https://github.com/amol179" target="_blank" rel="noopener noreferrer">Message me on GitHub</a>
       </div>
     </div>
   </section>
@@ -514,15 +518,28 @@
   </footer>
 
   <script>
+    const githubUsername = "amol179";
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
+    const githubProfileUrl = `https://github.com/${githubUsername}`;
+    const githubRepositoriesUrl = `${githubProfileUrl}?tab=repositories`;
+
+    document.querySelectorAll("[data-github-link]").forEach((link) => {
+      const linkType = link.getAttribute("data-github-link");
+      link.href = linkType === "repositories" ? githubRepositoriesUrl : githubProfileUrl;
+    });
 
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("show");
+      const isExpanded = navLinks.classList.contains("show");
+      menuBtn.setAttribute("aria-expanded", String(isExpanded));
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navLinks.classList.remove("show"));
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
